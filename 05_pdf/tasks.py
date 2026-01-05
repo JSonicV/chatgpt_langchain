@@ -14,7 +14,7 @@ def dev(ctx):
 @task
 def devworker(ctx):
     ctx.run(
-        "watchmedo auto-restart --directory=./app --pattern=*.py --recursive -- celery -A app.celery.worker worker --concurrency=1 --loglevel=INFO --pool=solo",
+        "watchmedo auto-restart --directory=./app --pattern=*.py --recursive -- celery -A app.celery.worker worker --concurrency=1 --loglevel=INFO",
         pty=os.name != "nt",
         env={"APP_ENV": "development"},
     )
